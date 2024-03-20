@@ -32604,7 +32604,7 @@ try {
     const url = `https://gitgudissues.azurewebsites.net/api/getsimilarissues/`;
 
     // Construct the API URL
-    core.info(`Querying with this data: ${repoName}, ${organizationName}, ${issueTitle}`);
+    core.info(`Querying with this data: ${repoName}, ${organizationName}, ${issueTitle}, ${issueBody}`);
 
     // Send a GET request to the API
     axios.post(url, { repoName: repoName, organizationName: organizationName, issueTitle: issueTitle, issueBody: issueBody}).then(response => {
