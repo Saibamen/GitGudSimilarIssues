@@ -5,6 +5,7 @@ const axios = require('axios');
 try {
     // Get the input values
     const issueTitle = core.getInput('issueTitle') || core.getInput('issuetitle');
+    const issueBody = core.getInput('issueBody') || core.getInput('issuebody');
     const repo = core.getInput('repo') || core.getInput('repository');
     const similarityTolerance = parseFloat(core.getInput('similarityTolerance') || core.getInput('similaritytolerance'));
     const commentBody = core.getInput('commentBody') || core.getInput('commentbody');
@@ -16,14 +17,14 @@ try {
         core.setFailed("Invalid distance tolerance");
     }
 
-    // Construct the API URL
-    const issueTitleEncoded = encodeURIComponent(issueTitle);
-    const url = `https://gitgudissues.azurewebsites.net/api/getsimilarissues/${repo}/${issueTitleEncoded}`;
+    let repoName = repo.split("/")[1];
+    let organizationName = repo.split("/")[0];
 
-    core.info(`Querying URL: ${url}`);
+    // Construct the API URL
+    core.info(`Querying with this data: ${repoName}, ${organizationName}, ${issueTitle}`);
 
     // Send a GET request to the API
-    axios.get(url).then(response => {
+    axios.post(url, { repoName: repoName, organizationName: organizationName, issueTitle: issueTitle, issueBody: issueBody}).then(response => {
         // Check if success is false
         if (response.data.success === false) {
             core.info(JSON.stringify(response.data, null, 2));

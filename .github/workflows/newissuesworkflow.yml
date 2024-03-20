@@ -12,6 +12,7 @@ jobs:
         uses: craigloewen-msft/GitGudSimilarIssues@main
         with:
           issueTitle: ${{ github.event.issue.title }}
+          issueBody: ${{ github.event.issue.body }}
           repository: ${{ github.repository }}
           similarityTolerance: "0.5"
           commentBody: |
