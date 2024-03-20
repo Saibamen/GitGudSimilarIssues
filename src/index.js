@@ -20,6 +20,8 @@ try {
     let repoName = repo.split("/")[1];
     let organizationName = repo.split("/")[0];
 
+    const url = `https://gitgudissues.azurewebsites.net/api/getsimilarissues/`;
+
     // Construct the API URL
     core.info(`Querying with this data: ${repoName}, ${organizationName}, ${issueTitle}`);
 
