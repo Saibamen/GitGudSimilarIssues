@@ -7,6 +7,10 @@ inputs:
     description: 'Issue to analyze title'
     required: true
     default: 'Hello World'
+  issueBody:
+    description: 'Issue body to analyze'
+    required: true
+    default: 'Hello World'
   repo:
     description: 'Repository to analyze'
     required: true
