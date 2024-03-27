@@ -32591,9 +32591,6 @@ try {
     const similarityTolerance = parseFloat(core.getInput('similarityTolerance') || core.getInput('similaritytolerance'));
     const commentBody = core.getInput('commentBody') || core.getInput('commentbody');
 
-    core.info("Comment body: " + commentBody);
-    core.info("Similarity tolerance" + similarityTolerance);
-
     if (similarityTolerance == null || similarityTolerance === 0 || isNaN(similarityTolerance)) {
         core.setFailed("Invalid distance tolerance");
     }
@@ -32670,6 +32667,7 @@ try {
 } catch (error) {
     core.setFailed(error.message);
 }
+
 })();
 
 module.exports = __webpack_exports__;
