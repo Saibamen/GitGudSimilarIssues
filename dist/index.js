@@ -32604,7 +32604,7 @@ try {
     core.info(`Repo Name: ${repoName}`);
     core.info(`Organization Name: ${organizationName}`);
     core.info(`Issue Title: ${issueTitle}`);
-    core.info("Issue body");
+    core.info("Issue body:");
     core.info(issueBody);
 
     core.info("Posting to URL");
@@ -32639,7 +32639,7 @@ try {
                 if (openIssues.length > 0) {
                     message += "### Open similar issues:\n\n";
                     openIssues.forEach(issue => {
-                        message += `- [${issue.title} (#${issue.number})](${issue.html_url}),  similarity score: ${issue.score.toFixed(2)}\n`;
+                        message += `- [${issue.title} (#${issue.number})](${issue.html_url}), similarity score: ${issue.score.toFixed(2)}\n`;
                     });
                 }
 
@@ -32648,10 +32648,9 @@ try {
                 if (closedIssues.length > 0) {
                     message += "\n### Closed similar issues:\n";
                     closedIssues.forEach(issue => {
-                        message += `- [${issue.title} (#${issue.number})](${issue.html_url}),  similarity score: ${issue.score.toFixed(2)}\n`;
+                        message += `- [${issue.title} (#${issue.number})](${issue.html_url}), similarity score: ${issue.score.toFixed(2)}\n`;
                     });
                 }
-
 
                 message += "\n> Note: You can give me feedback by thumbs upping or thumbs downing this comment.";
 
